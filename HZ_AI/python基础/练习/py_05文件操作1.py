@@ -25,7 +25,7 @@
 #     if len(byts) == 0:
 #         break
 #     print(byts)
-src_f1 = open("data/1.txt",'r',encoding='utf-8') #按字节读不用指定编码格式
+# src_f1 = open("data/1.txt",'r',encoding='utf-8') #按字节读不用指定编码格式
 # while True:
 #     byts = src_f1.read(5)
 #     if len(byts) == 0:
@@ -37,7 +37,27 @@ src_f1 = open("data/1.txt",'r',encoding='utf-8') #按字节读不用指定编码
 # print(result.replace('\n',''))
 # print(result1)
 
-result2 = src_f1.readlines()
-for line in result2:
-    line = line.replace('\n','')
-    print(line)
+# result2 = src_f1.readlines()
+# for line in result2:
+#     line = line.replace('\n','')
+#     print(line)
+
+# cat_f = open("data/cat.jpg",'rb')
+# cat2_f = open("data/cat2.png",'wb')
+# while True:
+#     data=cat_f.read(1024)
+#     if len(data) == 0:
+#         break
+#     cat2_f.write(data)
+# cat_f.close()
+# cat2_f.close()
+
+src_name = '../data/1.txt'
+idx = src_name.rfind('.')
+dit_name = src_name[:idx] + '备份' + src_name[idx:]
+with open(src_name,'rb') as src_f,open(dit_name,'wb') as dit_f:
+    while True:
+        data = src_f.read(1024)
+        if len(data) == 0:
+            break
+        dit_f.write(data)
