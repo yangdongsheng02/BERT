@@ -1,4 +1,3 @@
-# 安装必要的库
 # transformers: Hugging Face的Transformer库，包含BERT等预训练模型
 # torch: PyTorch深度学习框架
 # datasets: Hugging Face的数据集处理库
@@ -6,8 +5,10 @@
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
-import accelerate
 os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+os.environ['TRANSFORMERS_OFFLINE'] = '0'
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 #数据准备
 #创建数据集
 # 这里使用一个简单的电影评论情感分析数据集
